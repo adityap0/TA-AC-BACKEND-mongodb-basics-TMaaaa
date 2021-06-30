@@ -1,0 +1,2 @@
+db.cricket.insert( [{ name: "player1", age: 15, email: "email1@gmail.com", bid_price: 4$},{ name: "player2", age: 16, email: "email2@gmail.com", bid_price: 5$},
+  { name: "player3", age: 17, email: "email3@gmail.com", bid_price: 6$},{ name: "player4", age: 18, email: "email4@gmail.com", bid_price: 7$}] )
