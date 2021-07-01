@@ -52,7 +52,10 @@ db.articles.update(
 // 11. rename details field to description from all articles in articles collection.
 db.articles.updateMany({}, { $rename: { details: "description" } });
 // 12. Add additional tag in a specific document.
-
+db.articles.updateMany(
+  { title: "Palm Springs" },
+  { $set: { tag: ["Movies"] } }
+);
 // 13. Update an article's title using $set and without $set.
 
 // - Write the differences here ?
@@ -182,5 +185,5 @@ db.articles.updateMany({}, { $rename: { details: "description" } });
 // - Find all users who play either 'football' or 'cricket'.
 // - Find all users whose name includes 'ri' in their name.
 //
-
+//
 // - Write a function to chop a string into chunks of a given length.
