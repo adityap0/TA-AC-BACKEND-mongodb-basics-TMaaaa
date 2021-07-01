@@ -174,7 +174,7 @@ db.articles.updateMany({}, { $rename: { details: "description" } });
 //   },
 // ]);
 // ```
-
+//
 // Insert above data into database to perform below queries:-
 
 // - Find all males who play cricket.
