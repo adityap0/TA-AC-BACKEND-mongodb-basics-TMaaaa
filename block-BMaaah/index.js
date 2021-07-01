@@ -1,43 +1,56 @@
-use blog;
+// use blog;
 
-db.createCollection('articles')
+db.createCollection("articles");
 
-db.articles.insertMany([{title : "Avengers : Endgame",
-createdAt : 2020,
-details : "Avengers, Assemble",
-author : {name: 'Russo Brothers', email: 'qtmax@gmail', age: 55},
-tags : ["Action", "Thriller"]},
-{title : "Palm Springs",
-createdAt : 2020,
-details : "Love story, time travel, desert",
-author : {name: 'Andy Samberg', email: 'brkln99@gmail', age: 25},
-tags : ["Action", "Comedy"]},
-{title : "Pineapple Express",
-createdAt : 2008,
-details : "weed, high, cop, McLovin",
-author : {name: 'Seth Rogen', email: 'gethigh@gmail', age: 35},
-tags : ["Action", "Comedy", "Stoner"]}
-])
+db.articles.insertMany([
+  {
+    title: "Avengers : Endgame",
+    createdAt: 2020,
+    details: "Avengers, Assemble",
+    author: { name: "Russo Brothers", email: "qtmax@gmail", age: 55 },
+    tags: ["Action", "Thriller"],
+  },
+  {
+    title: "Palm Springs",
+    createdAt: 2020,
+    details: "Love story, time travel, desert",
+    author: { name: "Andy Samberg", email: "brkln99@gmail", age: 25 },
+    tags: ["Action", "Comedy"],
+  },
+  {
+    title: "Pineapple Express",
+    createdAt: 2008,
+    details: "weed, high, cop, McLovin",
+    author: { name: "Seth Rogen", email: "gethigh@gmail", age: 35 },
+    tags: ["Action", "Comedy", "Stoner"],
+  },
+]);
 
 // 4. Find all the articles using `db.COLLECTION_NAME.find()`
-db.articles.find().pretty()
+db.articles.find().pretty();
 // 5. Find a document using \_id field.
-db.articles.find({_id : ObjectId("60dd83f142ff1078e7e4e389")}).pretty()
+db.articles.find({ _id: ObjectId("60dd83f142ff1078e7e4e389") }).pretty();
 
 // 6. 1. Find documents using title
-db.articles.find({title : 'Palm Springs'})
+db.articles.find({ title: "Palm Springs" });
 
 // 7. 2. Find documents using author's name field.
-db.articles.find({author : {name : 'Seth Rogen'}}).pretty()
+db.articles.find({ author: { name: "Seth Rogen" } }).pretty();
 
 // 8. Find document using a specific tag.
-db.articles.find({tags : 'Stoner'}).pretty()
+db.articles.find({ tags: "Stoner" }).pretty();
 // 9. Update title of a document using its \_id field.
-db.articles.update({_id : ObjectId("60dd83f142ff1078e7e4e38b")}, {$set :{title : 'PineApple Express'}})
+db.articles.update(
+  { _id: ObjectId("60dd83f142ff1078e7e4e38b") },
+  { $set: { title: "PineApple Express" } }
+);
 // 10. Update a author's name using article's title.
-db.articles.update({title : "Avengers : Endgame"}, {$set :{author : {name : 'Andy'}}})
+db.articles.update(
+  { title: "Avengers : Endgame" },
+  { $set: { author: { name: "Andy" } } }
+);
 // 11. rename details field to description from all articles in articles collection.
-db.articles.updateMany( {}, { $rename: { "details": "description" }})
+db.articles.updateMany({}, { $rename: { details: "description" } });
 // 12. Add additional tag in a specific document.
 
 // 13. Update an article's title using $set and without $set.
