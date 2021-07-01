@@ -3,8 +3,7 @@ writeCode
 #### Import data from json file to mongodb database using `mongoimport`
 
 ```
-mongoimport --host <host_name> --username <user_name> --password <password> --db
-DB_NAME --collection COLLECTION_NAME --file cities.json(file location) --jsonArray
+
 (an array of json data)
 ```
 
@@ -42,6 +41,8 @@ Go to `https://www.json-generator.com/`
 
 - download it on `Desktop`
 - import it into mongodb `test` database into a collection named `users`
+
+mongoimport --db test --collection users --file data.json --jsonArray
 
 #### Export data from mongodb server to local system in json format using
 
